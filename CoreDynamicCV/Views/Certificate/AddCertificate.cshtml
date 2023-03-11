@@ -1,0 +1,19 @@
+﻿@model EntityLayer.Concrete.Certificate
+@{
+    ViewData["Title"] = "AddCertificate";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Sertifika Ekleme Sayfası</h1>
+
+<form method="post" class="form-group" asp-controller="Certificate" asp-action="AddCertificate">
+    <label>Açıklama</label>
+    <input type="text" class="form-control" placeholder="Açıklama" asp-for="Description" />
+    <span asp-validation-for="Description"></span>
+    <br />
+    <label>Alış Tarihi</label>
+    <input type="date" class="form-control" placeholder="Sertifikanın Alındığı Tarih" asp-for="CertificateDate" />
+    <span asp-validation-for="CertificateDate"></span>
+    <br />
+    <button class="btn btn-primary">Ekle</button>
+</form>

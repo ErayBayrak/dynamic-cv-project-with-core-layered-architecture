@@ -1,0 +1,50 @@
+﻿@using EntityLayer.Concrete
+@model List<Contact>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<h1>Gelen Mesajlar</h1>
+<!DOCTYPE html>
+<html lang="en">
+<body class="hold-transition sidebar-mini">
+    <div class="wrapper">
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        @foreach (var item in Model)
+                        {
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="tab-content">
+                                        <div class="timeline timeline-inverse">
+                                            <div class="time-label">
+                                                <span class="bg-lightblue">
+                                                    @(((DateTime)item.ContactDatetime).ToString("dd-MMM-yyyy"))
+                                                </span>
+                                            </div>
+                                            <div>
+                                                <i class="fas fa-comment bg-primary"></i>
+                                                <div class="timeline-item">
+                                                    <span class="time"><i class="fa fa-envelope"></i> @item.Mail</span>
+                                                    <h3 class="timeline-header"><a href="#">@item.NameSurname</a> @item.Subject</h3>
+                                                    <div class="timeline-body">
+                                                        @item.Message
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

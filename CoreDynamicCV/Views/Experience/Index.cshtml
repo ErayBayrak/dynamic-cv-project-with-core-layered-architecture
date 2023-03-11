@@ -1,0 +1,33 @@
+﻿@using EntityLayer.Concrete
+@model List<Experience>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Deneyimler Sayfası</h1>
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>BAŞLIK</th>
+        <th>ALT BAŞLIK</th>
+        <th>TARİH ARALIĞI</th>
+        <th>SİL</th>
+        <th>GÜNCELLE</th>
+    </tr>
+    @foreach (var item in Model.Where(x=>x.ExperienceStatus==true))
+    {
+        
+        <tr>
+            <td>@item.ExperienceID</td>
+            <td>@item.Title</td>
+            <td>@item.Subtitle</td>
+            <td>@item.ExperienceTime</td>
+            <td><a href="~/Experience/DeleteExperience/@item.ExperienceID" class="btn btn-danger">SİL</a></td>
+            <td><a href="~/Experience/UpdateExperience/@item.ExperienceID" class="btn btn-success">GÜNCELLE</a></td>
+        </tr>
+
+    }
+
+</table>
+<a href="~/Experience/AddExperience/" class="btn btn-primary">Yeni Deneyim Ekle</a>

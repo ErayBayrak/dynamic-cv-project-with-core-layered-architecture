@@ -1,0 +1,31 @@
+﻿@model EntityLayer.Concrete.Contact
+
+<section class="resume-section" id="contact">
+    <div class="resume-section-content">
+        <h2 class="mb-5">Mesaj Yazın</h2>
+
+        <form asp-action="SendMessage" asp-controller="Default" method="post" class="form-group">
+            <label>Ad-Soyad</label>
+            <input type="text" asp-for="NameSurname" class="form-control" />
+            <span asp-validation-for="NameSurname"></span>
+            <br />
+            <label>Mail</label>
+            <input type="email" asp-for="Mail" class="form-control" />
+            <span asp-validation-for="Mail"></span>
+            <br />
+            <label>Konu</label>
+            <input type="text" asp-for="Subject" class="form-control" />
+            <span asp-validation-for="Subject"></span>
+            <br />
+            <label>Mesajınız</label>
+            <input type="text" asp-for="Message" class="form-control" />
+            <span asp-validation-for="Message"></span>
+            <br />
+            @*<input type="submit" class="btn btn-primary" />*@
+            <button class="btn btn-primary">Gönder</button>
+        </form>
+
+
+
+    </div>
+</section>

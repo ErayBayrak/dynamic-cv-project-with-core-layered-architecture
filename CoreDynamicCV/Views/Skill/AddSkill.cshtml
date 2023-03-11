@@ -1,0 +1,19 @@
+﻿@model EntityLayer.Concrete.Skill
+@{
+    ViewData["Title"] = "AddSkill";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Beceri Ekleme Sayfası</h1>
+
+<form method="post" asp-action="AddSkill" asp-controller="Skill" class="form-group">
+    <label>Beceriniz</label>
+    <textarea asp-for="SkillDescription" class="form-control" rows="5" placeholder="Beceriniz"></textarea>
+    <span asp-validation-for="SkillDescription"></span>
+    <br />
+    <label>Oran</label>
+    <input asp-for="Rate" class="form-control" placeholder="Oran"/>
+    <span asp-validation-for="Rate"></span>
+    <br />
+    <button class="btn btn-primary">Ekle</button>
+</form>

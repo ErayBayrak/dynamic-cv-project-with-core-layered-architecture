@@ -1,0 +1,27 @@
+﻿@model EntityLayer.Concrete.Experience
+@{
+    ViewData["Title"] = "AddExperience";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Deneyim Ekleme Sayfası</h1>
+<form asp-action="AddExperience" asp-controller="Experience" method="post" class="form-group">
+    <label>Başlık</label>
+    <input type="text" asp-for="Title" class="form-control" placeholder="Başlık" />
+    <span asp-validation-for="Title"></span>
+    <br />
+    <label>Alt Başlık</label>
+    <input type="text" asp-for="Subtitle" class="form-control" placeholder="Alt Başlık" />
+    <span asp-validation-for="Subtitle"></span>
+    <br />
+    <label>Açıklama</label>
+    
+    <textarea asp-for="Description" class="form-control" placeholder="Açıklama" rows="5"></textarea>
+    <span asp-validation-for="Description"></span>
+    <br />
+    <label>Tarih</label>
+    <input type="text" asp-for="ExperienceTime" class="form-control" placeholder="Örn: Oca 23-Mar 23" />
+    <span asp-validation-for="ExperienceTime"></span>
+    <br />
+    <button class="btn btn-primary">Ekle</button>
+</form>

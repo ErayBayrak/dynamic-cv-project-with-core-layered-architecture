@@ -1,0 +1,28 @@
+﻿@using EntityLayer.Concrete
+@model List<Hobby>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<h1>Hobi Düzenleme Sayfası</h1>
+
+<form method="post" class="form-group">
+    @foreach (var item in Model)
+    {
+        <label>Açıklama 1</label>
+        <textarea class="form-control" name="Description1" rows="5">@item.Description1</textarea>
+        <br />
+        <label>Açıklama 2</label>
+        <textarea class="form-control" name="Description2" rows="5">@item.Description2</textarea>
+        <br />
+    }
+    <button class="btn btn-success" id="btn1">Güncelle</button>
+</form>
+<script>
+    $('#btn1').click(function () {
+        swal("Güncelleme Başarılı");
+    });
+</script>
+

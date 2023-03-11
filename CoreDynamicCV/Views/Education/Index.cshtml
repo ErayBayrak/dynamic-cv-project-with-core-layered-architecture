@@ -1,0 +1,36 @@
+﻿@using EntityLayer.Concrete
+@model List<Education>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Eğitim Sayfası</h1>
+
+<table class="table table-hover">
+    <tr>
+        <th>#</th>
+        <th>Başlık</th>
+        <th>Alt Başlık</th>
+        <th>Alt Başlık 2</th>
+        <th>GNO</th>
+        <th>Eğitim Aralığı</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+    @foreach (var item in Model.Where(x=>x.EducationStatus==true))
+    {
+        <tr>
+            <td>@item.EducationID</td>
+            <td>@item.Title</td>
+            <td>@item.Subtitle1</td>
+            <td>@item.Subtitle2</td>
+            <td>@item.GPA</td>
+            <td>@item.EducationDate</td>
+            <td><a href="/Education/DeleteEducation/@item.EducationID" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Education/UpdateEducation/@item.EducationID" class="btn btn-success">Güncelle</a></td>
+        </tr>
+    }
+
+</table>
+<a href="/Education/AddEducation/" class="btn btn-primary">Yeni Eğitim Ekle</a>

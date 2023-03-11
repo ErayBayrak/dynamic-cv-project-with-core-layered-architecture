@@ -1,0 +1,18 @@
+﻿@using EntityLayer.Concrete
+@model List<Skill>
+<section class="resume-section" id="skills">
+    <div class="resume-section-content">
+        <h2 class="mb-5">Beceriler</h2>
+       
+        <div class="subheading mb-3">Workflow</div>
+        <ul class="fa-ul mb-0">
+            @foreach (var x in Model)
+            {
+                <li>
+                    <span class="fa-li"><i class="fas fa-check"></i></span>
+                    @x.SkillDescription
+                </li>
+            }
+        </ul>
+    </div>
+</section>

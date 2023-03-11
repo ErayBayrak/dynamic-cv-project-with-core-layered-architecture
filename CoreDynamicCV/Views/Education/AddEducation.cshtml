@@ -1,0 +1,31 @@
+﻿@model EntityLayer.Concrete.Education
+@{
+    ViewData["Title"] = "AddEducation";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Eğitim Ekleme Sayfası</h1>
+
+<form asp-action="AddEducation" asp-controller="Education" method="post" class="form-group">
+    <label>Başlık</label>
+    <input type="text" class="form-control" asp-for="Title" placeholder="Başlık" />
+    <span asp-validation-for="Title"></span>
+    <br />
+    <label>Alt Başlık</label>
+    <input type="text" class="form-control" asp-for="Subtitle1" placeholder="Alt Başlık" />
+    <span asp-validation-for="Subtitle1"></span>
+    <br />
+    <label>Alt Başlık 2</label>
+    <input type="text" class="form-control" asp-for="Subtitle2" placeholder="Alt Başlık 2" />
+    <span asp-validation-for="Subtitle2"></span>
+    <br />
+    <label>GNO</label>
+    <input type="text" class="form-control" asp-for="GPA" placeholder="Genel Not Ortalaması" />
+    <span asp-validation-for="GPA"></span>
+    <br />
+    <label>Eğitim Zaman Aralığı</label>
+    <input type="text" class="form-control" asp-for="EducationDate" placeholder="Eğitim Zaman Aralığı" />
+    <span asp-validation-for="EducationDate"></span>
+    <br />
+    <button class="btn btn-primary">Ekle</button>
+</form>

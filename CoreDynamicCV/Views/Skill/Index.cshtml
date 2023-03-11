@@ -1,0 +1,95 @@
+﻿@using EntityLayer.Concrete
+@model List<Skill>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Yetenek Listesi</h1>
+<!DOCTYPE html>
+<html lang="tr">
+<body class="hold-transition sidebar-mini">
+    <div class="wrapper">
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <!-- /.card-header -->
+                            <div class="card-body">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr class="text-center">
+                                            <th style="width: 10px">#</th>
+                                            <th>Beceri</th>
+                                            <th>Oran</th>
+                                            <th style="width: 40px">Label</th>
+                                            <th>İşlemler</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model.Where(x=>x.RateStatus==true))
+                                        {
+                                            <tr class="text-center">
+                                                <td>@item.SkillID</td>
+                                                <td>@item.SkillDescription</td>
+                                                <td>
+                                                    <div class="progress progress-xs">
+                                                        @if (item.Rate <= 50 && item.Rate >= 0)
+                                                        {
+                                                            <div class="progress-bar bg-danger" style="width: @item.Rate%"></div>
+                                                        }
+                                                        else if (item.Rate > 50 && item.Rate <= 100)
+                                                        {
+                                                            <div class="progress-bar bg-success" style="width: @item.Rate%"></div>
+                                                        }
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    @if (item.Rate <= 50 && item.Rate >= 0)
+                                                    {
+                                                        <span class="badge bg-danger">@item.Rate%</span>
+                                                    }
+                                                    else if (item.Rate > 50 && item.Rate <= 100)
+                                                    {
+                                                        <span class="badge bg-success">@item.Rate%</span>
+                                                    }
+                                                </td>
+                                                <td class="text-center">
+                                                    <a href="/Skill/DeleteSkill/@item.SkillID" class="btn btn-outline-danger col-md-4">Sil</a>
+                                                    <a href="/Skill/UpdateSkill/@item.SkillID" class="btn btn-outline-success col-md-4">Güncelle</a>
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                                <br />
+                                <a href="/Skill/AddSkill/" class="btn btn-primary">Yeni Beceri Ekle</a>
+                            </div>
+                            <!-- /.card-body -->
+
+                        </div>
+                    </div>
+                </div>
+            </div><!-- /.container-fluid -->
+        </section>
+        <!-- /.content -->
+    </div>
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+        <!-- Control sidebar content goes here -->
+    </aside>
+    <!-- /.control-sidebar -->
+    <!-- ./wrapper -->
+    <!-- jQuery -->
+    <script src="../../plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="../../dist/js/adminlte.min.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="../../dist/js/demo.js"></script>
+</body>
+</html>
+

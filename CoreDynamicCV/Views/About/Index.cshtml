@@ -1,0 +1,49 @@
+﻿@using EntityLayer.Concrete
+@model List<About>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Hakkımda Düzenleme Sayfası</h1>
+
+<form method="post" class="form-group">
+    @foreach (var item in Model)
+    {
+        <label>Ad</label>
+        <input type="text" class="form-control" name="Name" value="@item.Name" required/>
+        <span asp-validation-for="@item.Name"></span>
+        <br />
+
+        <label>Soyad</label>
+        <input type="text" class="form-control" name="Surname" value="@item.Surname" required/>
+        <span asp-validation-for="@item.Surname"></span>
+        <br />
+
+        <label>Adres</label>
+        <input type="text" class="form-control" name="Address" value="@item.Address" required />
+        <span asp-validation-for="@item.Address"></span>
+        <br />
+
+        <label>Telefon Numarası (Format: 123 456 78 90)</label>
+        <input type="tel" pattern="[0-9]{3} [0-9]{3} [0-9]{2} [0-9]{2}" class="form-control" name="PhoneNumber" value="@item.PhoneNumber" required />
+        <span asp-validation-for="@item.PhoneNumber"></span>
+        <br />
+
+        <label>Mail</label>
+        <input type="email" class="form-control" name="Mail" value="@item.Mail" required />
+        <span asp-validation-for="@item.Mail"></span>
+        <br />
+
+        <label>Resim</label>
+        <input type="text" class="form-control" name="Image" value="@item.Image" />
+        <span asp-validation-for="@item.Image"></span>
+        <br />
+
+        <label>Açıklama</label>
+        <textarea class="form-control" name="Description" rows="5" required>@item.Description</textarea>
+        <span asp-validation-for="@item.Description"></span>
+        <br />
+    }
+    <button class="btn btn-success">Güncelle</button>
+</form>

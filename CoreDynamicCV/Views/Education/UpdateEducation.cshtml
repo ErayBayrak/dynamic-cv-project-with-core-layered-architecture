@@ -1,0 +1,32 @@
+﻿@model EntityLayer.Concrete.Education
+@{
+    ViewData["Title"] = "UpdateEducation";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Eğitim Güncelleme Sayfası</h1>
+
+<form asp-action="UpdateEducation" asp-controller="Education" method="post" class="form-group">
+    <input type="hidden" asp-for="EducationID" />
+    <label>Başlık</label>
+    <input type="text" class="form-control" asp-for="Title"/>
+    <span asp-validation-for="Title"></span>
+    <br />
+    <label>Alt Başlık</label>
+    <input type="text" class="form-control" asp-for="Subtitle1"/>
+    <span asp-validation-for="Subtitle1"></span>
+    <br />
+    <label>Alt Başlık 2</label>
+    <input type="text" class="form-control" asp-for="Subtitle2"/>
+    <span asp-validation-for="Subtitle2"></span>
+    <br />
+    <label>GNO</label>
+    <input type="text" class="form-control" asp-for="GPA"/>
+    <span asp-validation-for="GPA"></span>
+    <br />
+    <label>Eğitim Zaman Aralığı</label>
+    <input type="text" class="form-control" asp-for="EducationDate"/>
+    <span asp-validation-for="EducationDate"></span>
+    <br />
+    <button class="btn btn-primary">Güncelle</button>
+</form>
